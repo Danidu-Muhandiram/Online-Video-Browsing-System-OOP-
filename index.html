@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Browsing System</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <!-- Left Section -->
+            <div class="d-flex align-items-center">
+                <button class="btn btn-dark me-2" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <i class="fas fa-play-circle text-primary me-2"></i>
+                    <span>VideoHub</span>
+                </a>
+            </div>
+
+            <!-- Center Section - Search -->
+            <div class="nav-center flex-grow-1 mx-4">
+                <div class="search-container">
+                    <div class="input-group">
+                        <input type="text" class="form-control search-input" 
+                               placeholder="Search videos..." 
+                               aria-label="Search"
+                               id="searchInput">
+                        <button class="btn btn-primary" type="button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <!-- Search Suggestions Dropdown -->
+                    <div class="search-suggestions" id="searchSuggestions">
+                        <div class="suggestion-header">
+                            <span>Recent Searches</span>
+                            <button class="btn btn-link btn-sm text-muted">Clear</button>
+                        </div>
+                        <div class="suggestions-list">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Section -->
+            <div class="nav-right d-flex align-items-center">
+                <!-- Upload Button -->
+                <button class="btn btn-outline-primary me-3" data-bs-toggle="modal" data-bs-target="#uploadModal">
+                    <i class="fas fa-upload me-1"></i>
+                    <span class="d-none d-sm-inline">Upload</span>
+                </button>
+
+                <!-- Notifications Dropdown -->
+                <div class="dropdown me-3">
+                    <button class="btn btn-dark position-relative" data-bs-toggle="dropdown">
+                        <i class="fas fa-bell"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            3
+                        </span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end notification-dropdown">
+                        <h6 class="dropdown-header">Notifications</h6>
+                        <div class="notification-item">
+                            <i class="fas fa-user-plus text-primary"></i>
+                            <div class="notification-content">
+                                <p>New subscriber: John Doe</p>
+                                <small class="text-muted">2 minutes ago</small>
+                            </div>
+                        </div>
+                        <div class="notification-item">
+                            <i class="fas fa-comment text-success"></i>
+                            <div class="notification-content">
+                                <p>New comment on your video</p>
+                                <small class="text-muted">1 hour ago</small>
+                            </div>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-center" href="#">View All</a>
+                    </div>
+                </div>
+
+                <!-- Theme Toggle -->
+                <button class="btn btn-dark me-3" id="darkModeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <!-- User Menu -->
+                <div class="dropdown">
+                    <button class="btn btn-dark d-flex align-items-center" data-bs-toggle="dropdown">
+                        <img src="https://ui-avatars.com/api/?name=User&background=random" 
+                             alt="User" 
+                             class="rounded-circle me-2" 
+                             width="32" 
+                             height="32">
+                        <span class="d-none d-sm-inline">Account</span>
+                        <i class="fas fa-chevron-down ms-2"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end user-dropdown">
+                        <div class="dropdown-header">
+                            <div class="d-flex align-items-center">
+                                <img src="https://ui-avatars.com/api/?name=User&background=random" 
+                                     alt="User" 
+                                     class="rounded-circle me-2" 
+                                     width="48" 
+                                     height="48">
+                                <div>
+                                    <h6 class="mb-0">Guest User</h6>
+                                    <small class="text-muted">guest@example.com</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">
+                            <i class="fas fa-user me-2"></i>Your Channel
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <i class="fas fa-cog me-2"></i>Settings
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <i class="fas fa-question-circle me-2"></i>Help
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+                            <i class="fas fa-sign-in-alt me-2"></i>Sign In
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 col-lg-2 d-none d-md-block sidebar">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active">Home</a>
+                    <a href="#" class="list-group-item list-group-item-action">Trending</a>
+                    <a href="#" class="list-group-item list-group-item-action">Categories</a>
+                    <a href="#" class="list-group-item list-group-item-action">Playlists</a>
+                    <a href="#" class="list-group-item list-group-item-action">Watch Later</a>
+                    <a href="#" class="list-group-item list-group-item-action">Favorites</a>
+                </div>
+            </div>
+
+            <!-- Video Grid -->
+            <div class="col-md-9 col-lg-10">
+                <div class="row" id="videoGrid">
+                    <!-- Video cards will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Player Modal -->
+    <div class="modal fade" id="videoPlayerModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    <div class="video-container">
+                        <video id="mainVideoPlayer" class="video-js" controls preload="auto">
+                            <p class="vjs-no-js">
+                                To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
+                            </p>
+                        </video>
+                    </div>
+                    <!-- Video Information -->
+                    <div class="video-info p-3">
+                        <h3 id="videoTitle">Video Title</h3>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="video-stats">
+                                <span class="views">0 views</span>
+                                <span class="date">Upload date</span>
+                            </div>
+                            <div class="video-actions">
+                                <button class="btn btn-outline-primary"><i class="fas fa-thumbs-up"></i> Like</button>
+                                <button class="btn btn-outline-primary"><i class="fas fa-share"></i> Share</button>
+                                <button class="btn btn-outline-primary"><i class="fas fa-bookmark"></i> Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </form>
+                    <hr>
+                    <div class="text-center">
+                        <button class="btn btn-outline-dark w-100 mb-2">
+                            <i class="fab fa-google"></i> Continue with Google
+                        </button>
+                        <button class="btn btn-outline-primary w-100">
+                            <i class="fab fa-facebook"></i> Continue with Facebook
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap and other scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 
