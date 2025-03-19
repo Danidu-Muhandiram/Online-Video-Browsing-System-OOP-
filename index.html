@@ -105,6 +105,7 @@
                         <i class="fas fa-chevron-down ms-2"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-end user-dropdown">
+                        <!-- Channel Profile Section -->
                         <div class="dropdown-header">
                             <div class="d-flex align-items-center">
                                 <img src="https://ui-avatars.com/api/?name=User&background=random" 
@@ -113,24 +114,107 @@
                                      width="48" 
                                      height="48">
                                 <div>
-                                    <h6 class="mb-0">Guest User</h6>
-                                    <small class="text-muted">guest@example.com</small>
+                                    <h6 class="mb-0">Your Channel</h6>
+                                    <small class="text-muted">@yourchannel</small>
                                 </div>
                             </div>
                         </div>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">
-                            <i class="fas fa-user me-2"></i>Your Channel
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            <i class="fas fa-cog me-2"></i>Settings
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            <i class="fas fa-question-circle me-2"></i>Help
-                        </a>
+
+                        <!-- Channel Management -->
+                        <div class="dropdown-section">
+                            <h6 class="dropdown-section-title">Channel Management</h6>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-paint-brush me-2"></i>Customize Channel
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-edit me-2"></i>Edit Channel Info
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-link me-2"></i>Custom URL
+                            </a>
+                        </div>
+
+                        <!-- Content Management -->
+                        <div class="dropdown-section">
+                            <h6 class="dropdown-section-title">Content</h6>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-upload me-2"></i>Upload Video
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-list me-2"></i>Manage Playlists
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-clock me-2"></i>Scheduled Videos
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-draft me-2"></i>Drafts
+                            </a>
+                        </div>
+
+                        <!-- Analytics & Monetization -->
+                        <div class="dropdown-section">
+                            <h6 class="dropdown-section-title">Analytics & Earnings</h6>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-chart-line me-2"></i>Analytics Dashboard
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-wallet me-2"></i>Revenue
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-users me-2"></i>Audience Insights
+                            </a>
+                        </div>
+
+                        <!-- Community & Engagement -->
+                        <div class="dropdown-section">
+                            <h6 class="dropdown-section-title">Community</h6>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-comments me-2"></i>Comments
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-bell me-2"></i>Notifications
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-users me-2"></i>Subscribers
+                            </a>
+                        </div>
+
+                        <!-- Live Streaming -->
+                        <div class="dropdown-section">
+                            <h6 class="dropdown-section-title">Live Streaming</h6>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-broadcast-tower me-2"></i>Go Live
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-video me-2"></i>Live Events
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-gift me-2"></i>Memberships
+                            </a>
+                        </div>
+
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
-                            <i class="fas fa-sign-in-alt me-2"></i>Sign In
+
+                        <!-- Settings & Help -->
+                        <div class="dropdown-section">
+                            <h6 class="dropdown-section-title">Settings</h6>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-cog me-2"></i>Channel Settings
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-shield-alt me-2"></i>Privacy
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-question-circle me-2"></i>Help Center
+                            </a>
+                        </div>
+
+                        <div class="dropdown-divider"></div>
+
+                        <!-- Sign Out -->
+                        <a class="dropdown-item text-danger" href="#">
+                            <i class="fas fa-sign-out-alt me-2"></i>Sign Out
                         </a>
                     </div>
                 </div>
