@@ -157,7 +157,7 @@
                                         </button>
                                         
                                         <div class="text-center">
-                                            <p class="mb-0">Already have an account? <a href="${pageContext.request.contextPath}/login.jsp" class="text-purple">Log In</a></p>
+                                            <p class="mb-0">Already have an account? <a href="${pageContext.request.contextPath}/Login.jsp" class="text-purple">Log In</a></p>
                                         </div>
                                     </form>
                                     
@@ -193,103 +193,8 @@
     <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Custom JS -->
-    <script src="${pageContext.request.contextPath}/js/script.js"></script>
+   
+    <script src="${pageContext.request.contextPath}/js2/script.js"></script>
     
-    <script>
-        // Initialize AOS
-        AOS.init();
-        
-        // Form validation
-        (function() {
-            'use strict';
-            
-            const form = document.getElementById('signupForm');
-            
-            form.addEventListener('submit', function(event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-            });
-            
-            // Password toggle functionality
-            document.querySelectorAll('.toggle-password').forEach(button => {
-                button.addEventListener('click', function() {
-                    const input = this.parentElement.querySelector('input');
-                    const icon = this.querySelector('i');
-                    
-                    if (input.type === 'password') {
-                        input.type = 'text';
-                        icon.classList.remove('fa-eye');
-                        icon.classList.add('fa-eye-slash');
-                    } else {
-                        input.type = 'password';
-                        icon.classList.remove('fa-eye-slash');
-                        icon.classList.add('fa-eye');
-                    }
-                });
-            });
-            
-            // Password strength checker
-            const password = document.getElementById('password');
-            const strengthDiv = document.getElementById('passwordStrength');
-            const strengthText = document.getElementById('strengthText');
-            const strengthProgress = document.getElementById('strengthProgress');
-            
-            password.addEventListener('input', function() {
-                const value = this.value;
-                if (value.length > 0) {
-                    strengthDiv.classList.remove('d-none');
-                    
-                    let strength = 0;
-                    const requirements = {
-                        length: value.length >= 8,
-                        uppercase: /[A-Z]/.test(value),
-                        lowercase: /[a-z]/.test(value),
-                        number: /[0-9]/.test(value),
-                        special: /[^A-Za-z0-9]/.test(value)
-                    };
-                    
-                    Object.values(requirements).forEach(met => {
-                        if (met) strength += 20;
-                    });
-                    
-                    // Update progress bar
-                    strengthProgress.style.width = strength + '%';
-                    
-                    // Update text and color
-                    if (strength <= 20) {
-                        strengthText.textContent = 'Very Weak';
-                        strengthProgress.className = 'progress-bar bg-danger';
-                    } else if (strength <= 40) {
-                        strengthText.textContent = 'Weak';
-                        strengthProgress.className = 'progress-bar bg-warning';
-                    } else if (strength <= 60) {
-                        strengthText.textContent = 'Medium';
-                        strengthProgress.className = 'progress-bar bg-info';
-                    } else if (strength <= 80) {
-                        strengthText.textContent = 'Strong';
-                        strengthProgress.className = 'progress-bar bg-primary';
-                    } else {
-                        strengthText.textContent = 'Very Strong';
-                        strengthProgress.className = 'progress-bar bg-success';
-                    }
-                    
-                    // Update requirement icons
-                    Object.entries(requirements).forEach(([req, met]) => {
-                        const icon = document.querySelector(`#${req} i`);
-                        if (met) {
-                            icon.className = 'fas fa-check-circle text-success';
-                        } else {
-                            icon.className = 'fas fa-times-circle text-danger';
-                        }
-                    });
-                } else {
-                    strengthDiv.classList.add('d-none');
-                }
-            });
-        })();
-    </script>
 </body>
 </html> 

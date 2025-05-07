@@ -109,7 +109,7 @@
                                         </button>
                                         
                                         <div class="text-center">
-                                            <p class="mb-0">Don't have an account? <a href="${pageContext.request.contextPath}/signup.jsp" class="text-purple">Sign Up</a></p>
+                                            <p class="mb-0">Don't have an account? <a href="${pageContext.request.contextPath}/Signup.jsp" class="text-purple">Sign Up</a></p>
                                         </div>
                                     </form>
                                     
