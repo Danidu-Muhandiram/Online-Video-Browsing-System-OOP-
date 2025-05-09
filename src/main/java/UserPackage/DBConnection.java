@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DBConnection {
 	
-	private static String url = "jdbc:mysql://localhost:3306/videobrowsing";
+	private static String url = "jdbc:mysql://localhost:3306/videobrowsing?useSSL=false&allowPublicKeyRetrieval=true";
 	private static String user = "root";
 	private static String pass = "Abi0021@";
 	private static Connection con;

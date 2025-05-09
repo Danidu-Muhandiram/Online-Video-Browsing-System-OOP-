@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet("/UserInsertServlet")
 public class UserInsertServlet extends HttpServlet {
@@ -15,7 +16,7 @@ public class UserInsertServlet extends HttpServlet {
     
     @Override
     public void init() throws ServletException {
-        userController = UserController.getInstance();
+        userController = new UserController();
     }
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
@@ -29,13 +30,14 @@ public class UserInsertServlet extends HttpServlet {
         String password = request.getParameter("password");
         String confirmPassword = request.getParameter("confirmPassword");
         
-        // Create UserModel object
-        UserModel user = new UserModel();
+        // Create UserModel.User object
+        UserModel.User user = new UserModel.User();
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setUsername(username);
         user.setEmail(email);
         user.setPassword(password);
+        user.setUserType("user"); // Set default user type
         
         try {
             // Validate form data
@@ -72,7 +74,7 @@ public class UserInsertServlet extends HttpServlet {
         }
     }
     
-    private boolean validateFormData(UserModel user, String confirmPassword) {
+    private boolean validateFormData(UserModel.User user, String confirmPassword) {
         // Check if any field is empty
         if (user.getFirstName() == null || user.getLastName() == null || 
             user.getUsername() == null || user.getEmail() == null || 

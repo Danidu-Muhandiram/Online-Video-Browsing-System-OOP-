@@ -16,7 +16,7 @@ public class LoginServlet extends HttpServlet {
 	
 	@Override
 	public void init() throws ServletException {
-		userController = UserController.getInstance();
+		userController = new UserController();
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,10 +39,10 @@ public class LoginServlet extends HttpServlet {
 			}
 			
 			// Attempt login
-			List<UserModel> userLogin = userController.loginUser(email, password);
+			List<UserModel.User> userLogin = userController.loginUser(email, password);
 			
 			if (userLogin != null && !userLogin.isEmpty()) {
-				UserModel user = userLogin.get(0);
+				UserModel.User user = userLogin.get(0);
 				
 				// Create session
 				HttpSession session = request.getSession();
@@ -56,7 +56,7 @@ public class LoginServlet extends HttpServlet {
 				}
 				
 				// Redirect to home page
-				response.sendRedirect("home.jsp");
+				response.sendRedirect("Profile.jsp");
 			} else {
 				request.setAttribute("error", "Invalid email or password. Please try again.");
 				request.getRequestDispatcher("Login.jsp").forward(request, response);
