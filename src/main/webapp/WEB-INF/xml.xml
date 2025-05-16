@@ -2,15 +2,28 @@
 
 <web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
-         version="5.0">
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
 
-    <!-- UserController Servlet -->
+    <display-name>Video Browsing System</display-name>
+
+    <!-- Login Servlet -->
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>UserPackage.LoginServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <!-- User Controller -->
     <servlet>
         <servlet-name>UserController</servlet-name>
         <servlet-class>UserPackage.UserController</servlet-class>
+        <load-on-startup>2</load-on-startup>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>UserController</servlet-name>
         <url-pattern>/UserController</url-pattern>
@@ -31,6 +44,7 @@
     <servlet>
         <servlet-name>UpdateProfilePictureServlet</servlet-name>
         <servlet-class>UserPackage.UpdateProfilePictureServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
         <multipart-config>
             <max-file-size>5242880</max-file-size>
             <max-request-size>10485760</max-request-size>
@@ -65,14 +79,25 @@
         <url-pattern>/DeleteAccountServlet</url-pattern>
     </servlet-mapping>
 
-    <!-- Configure session timeout -->
+    <!-- Session Configuration -->
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
 
-    <!-- Welcome file list -->
+    <!-- Welcome File List -->
     <welcome-file-list>
-        <welcome-file>Home.jsp</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+
+    <!-- Error Pages -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error/404.jsp</location>
+    </error-page>
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error/500.jsp</location>
+    </error-page>
 
 </web-app>

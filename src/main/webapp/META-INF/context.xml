@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <Resource name="jdbc/videobrowsingsystem" 
+              auth="Container" 
+              type="javax.sql.DataSource"
+              maxTotal="100" 
+              maxIdle="30" 
+              maxWaitMillis="10000"
+              username="root" 
+              password="" 
+              driverClassName="com.mysql.cj.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/videobrowsingsystem?useSSL=false&amp;serverTimezone=UTC"
+              removeAbandonedOnBorrow="true"
+              removeAbandonedOnMaintenance="true"
+              removeAbandonedTimeout="60"
+              logAbandoned="true"/>
+              
+    <Resources cachingAllowed="true" cacheMaxSize="100000" />
+</Context> 

@@ -3,7 +3,7 @@ package UserPackage;
 public class UserModel {
 	// User class
 	public static class User {
-		private int userId;
+		private String userId;
 		private String firstName;
 		private String lastName;
 		private String username;
@@ -15,7 +15,7 @@ public class UserModel {
 		public User() {
 		}
 
-		public User(int userId, String firstName, String lastName, String username, String email, String password,
+		public User(String userId, String firstName, String lastName, String username, String email, String password,
 				String profilePicture, String userType) {
 			this.userId = userId;
 			this.firstName = firstName;
@@ -28,11 +28,11 @@ public class UserModel {
 		}
 
 		// Getters and Setters
-		public int getUserId() {
+		public String getUserId() {
 			return userId;
 		}
 
-		public void setUserId(int userId) {
+		public void setUserId(String userId) {
 			this.userId = userId;
 		}
 
