@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <display-name>Video Browsing System</display-name>
+
+    <!-- Login Servlet -->
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>UserPackage.LoginServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <!-- User Controller -->
+    <servlet>
+        <servlet-name>UserController</servlet-name>
+        <servlet-class>UserPackage.UserController</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserController</servlet-name>
+        <url-pattern>/UserController</url-pattern>
+    </servlet-mapping>
+
+    <!-- UpdateProfileServlet -->
+    <servlet>
+        <servlet-name>UpdateProfileServlet</servlet-name>
+        <servlet-class>UserPackage.UpdateProfileServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UpdateProfileServlet</servlet-name>
+        <url-pattern>/UpdateProfileServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- UpdateProfilePictureServlet -->
+    <servlet>
+        <servlet-name>UpdateProfilePictureServlet</servlet-name>
+        <servlet-class>UserPackage.UpdateProfilePictureServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+        <multipart-config>
+            <max-file-size>5242880</max-file-size>
+            <max-request-size>10485760</max-request-size>
+            <file-size-threshold>1048576</file-size-threshold>
+        </multipart-config>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UpdateProfilePictureServlet</servlet-name>
+        <url-pattern>/UpdateProfilePictureServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- ChangePasswordServlet -->
+    <servlet>
+        <servlet-name>ChangePasswordServlet</servlet-name>
+        <servlet-class>UserPackage.ChangePasswordServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ChangePasswordServlet</servlet-name>
+        <url-pattern>/ChangePasswordServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- DeleteAccountServlet -->
+    <servlet>
+        <servlet-name>DeleteAccountServlet</servlet-name>
+        <servlet-class>UserPackage.DeleteAccountServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DeleteAccountServlet</servlet-name>
+        <url-pattern>/DeleteAccountServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- Session Configuration -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+
+    <!-- Welcome File List -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- Error Pages -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error/404.jsp</location>
+    </error-page>
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error/500.jsp</location>
+    </error-page>
+
+</web-app>

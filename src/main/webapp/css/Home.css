@@ -1,0 +1,377 @@
+/*------------CSS VARIABLES-------------------*/
+:root {
+    --primary: #7b2cbf;
+    --primary-hover: #9d4edd;
+    --secondary: #ff9e00;
+    --dark-bg: #0f0f1a;
+    --card-bg: #1a1a2e;
+    --text-primary: #ffffff;
+    --text-secondary: #b8b8d4;
+    --border-color: #2a2a4a;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/*--------section header style for all sections (same style)---*/
+
+.section-header{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    align-items: center;
+}
+
+.section-header a{
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.section-header h3{
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+/*-----------------NAVBAR STYLES-----------------------*/
+
+.navbar{
+    background-color: rgb(15,15, 26, 0.95);
+    padding: 0.8rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-brand i{
+    color: var(--primary);
+    font-size: 1.8rem;
+}
+
+.nav-item a{
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nav-item a:hover{
+    color: var(--primary);
+}
+
+.nav-item .nav-link {
+    padding: 0.5rem 1rem !important;
+    position: relative;
+}
+
+.nav-item .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1.5px;
+    left: 1rem;
+    right: 1rem;
+    height: 3px;
+    background-color: var(--primary);
+    border-radius: 3px;
+}
+
+/*-------------search bar--------------------*/
+.search-form{
+    width: 100%;
+    max-width: 400px;
+}
+
+.search-input{
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.6rem 1rem;
+    border-radius: 50px 0 0 50px;
+}
+
+.search-btn{
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 0 50px 50px 0;
+    padding: 0 1.2rem;
+}
+
+.search-btn:hover{
+    background-color: var(--primary-hover);
+    color: white;
+}
+
+/*--------------login and signup buttons----------------*/
+
+.login-btn, .signup-btn {
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.login-btn{
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.login-btn:hover{
+    background-color: var(--primary);
+    color: white;
+}
+
+.signup-btn{
+    background-color: var(--primary);
+    color: white;
+}
+
+.signup-btn:hover{
+   background-color: var(--primary-hover);
+}
+
+
+/*--------HERO SECTION WITH SLIDER-----------*/
+
+.hero-section{
+    padding: 0;
+    padding-top: 20px;
+}
+
+.slider-item{
+    height: 500px;
+    background-size: cover;
+    position: relative;
+    background-position: center;
+    border-radius: 15px;
+}
+
+.slider-content{
+    position: absolute;
+    bottom: 30px;
+    padding-left: 40px;
+}
+
+.slider-content h2{
+    font-size: 2.5rem;
+    font-weight: 700;
+    padding-bottom: 0.6rem;
+}
+
+.slider-content p{
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.slider-btn{
+    background-color: var(--secondary);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    border: none;
+}
+
+.slider-badge{
+    background-color: red;
+    color: white;
+    padding: 0.2rem 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+    display: inline-block;
+    text-align: center;
+    line-height: 1.2rem;
+}
+
+.categories-item{
+    background-color: var(--card-bg);
+    padding: 1.5rem 1rem;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+}
+
+.categories-icon i{
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.categories-item h5{
+    margin: 0;
+    font-weight: 600;
+}
+
+/*--------TRENDING VIDEOS SECTION-----------*/
+
+/*.trending-videos{
+    margin-top: 2.5rem;
+}*/
+
+.video-card{
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.video-card:hover{
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.video-thumbnail{
+    overflow: hidden;
+    position: relative;
+}
+
+.video-thumbnail img{
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.video-card:hover .video-thumbnail img{
+    transform: scale(1.05);
+}
+
+.video-duration{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.play-hover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.play-hover i{
+    font-size: 2rem;
+    color: white;
+}
+
+.video-card:hover .play-hover{
+    opacity: 1;
+}
+
+.video-info{
+    padding: 1rem;
+    display: flex;
+}
+
+.channel-logo{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 0.8rem;
+}
+
+.channel-logo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.video-details{
+    flex: 1; /*expand and take up any remaining space in the flex container*/
+}
+
+.video-title{
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.channel-name{
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.video-views{
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.video-views span{
+    margin-right: 0.5rem;
+}
+
+/*TOP (POPULAR) CREATORS SECTION*/
+
+.creator-card{
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.creator-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    overflow: hidden;
+}
+
+.creator-icon img{
+    width: 100%;
+    height: 100%;
+    object-fit:fill;
+}
+
+.creator-card h5{
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.creator-card p{
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.subscribe-btn{
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+        width: 100%;
+}
+
+.subscribe-btn:hover{
+    background-color: var(--primary-hover);
+    color: white;
+}
+
+
+
